@@ -1,0 +1,270 @@
+<p-toast [baseZIndex]='5000' position="bottom-center"></p-toast>
+<div *ngIf="loaded; else elseBlock" class="pt-4">
+    <div class="container">
+        <div class="row d-lg-flex justify-content-lg-between">
+            <div class="col-12 col-lg-6 d-flex align-items-center">
+                <span class="dasana-fs-32">Resumen de
+                    <span class="dasana-color"></span>
+                </span>
+            </div>
+            <div class="col-12 col-lg-3 mt-4 mt-lg-0">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Selecciona el mes del cual desea obtener la información:</mat-label>
+                    <mat-select>
+                        <mat-option>
+                      
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-lg-3">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Selecciona el año del cual desea obtener la información:</mat-label>
+                    <mat-select>
+                      <mat-option></mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="fw-semibold d-flex justify-content-between align-items-center">Nivel
+                    <button mat-button (click)="showLevel()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                            viewBox="0 0 16 16" class="bi bi-info-circle fs-4">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                            <path
+                                d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z">
+                            </path>
+                        </svg>
+                    </button>
+                </h2>
+                <div *ngIf="discountCodeUses" class="dasana-progress-bar">
+                    <mat-progress-bar mode="determinate"></mat-progress-bar>
+                </div>
+                <p class="mt-2">Llevas <span class="fw-bold dasana-color"></span> usuarios de
+                    <span class="fw-bold"></span>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <h2 class="mt-1 mb-2">Ingresos</h2>
+                <div class="card border-1 h-75">
+                    <div class="card-body d-flex justify-content-center align-items-center justify-content-xxl-center">
+                        <div class="d-flex align-items-center justify-content-md-center flex-xxl-row">
+                            <div>
+                                <span class="bs-icon-xl bs-icon-circle bs-icon me-2 dasana-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                                        viewBox="0 0 16 16" class="bi bi-wallet2">
+                                        <path
+                                            d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="mx-3">
+                                <span
+                                    class="fw-semibold mb-1 dasana-fs-35"></span>
+                                <span class="fw-normal text-muted fs-6 d-block">Pendientes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <h2 class="mt-1 mb-2">Código</h2>
+                <div class="card border-1 h-75">
+                    <div class="card-body d-flex align-items-center">
+                        <div>
+                            <div>
+                                <h1 class="fw-semibold d-flex align-items-center mb-1 dasana-fs-28">
+                                    <button mat-button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="#D86247"
+                                            viewBox="0 0 16 16" class="bi bi-files text-primary mx-2">
+                                            <path
+                                                d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </h1>
+                            </div>
+                            <div>
+                                <span class="fs-6"><span class="fw-bold dasana-color">
+                                    </span>personas han usado tu código.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-4">
+                <h2 class="mt-1 mb-2">Factura</h2>
+                <div class="card border-1 h-75 height-500">
+                    <div class="card-body">
+                        <div>
+                            <p-fileUpload class="button-upload" mode="basic" auto="true" #form name="myfile[]"
+                                [maxFileSize]="5242880" customUpload="true" accept="application/pdf"
+                                chooseLabel="Seleccionar archivo"></p-fileUpload>
+                        </div>
+                        <div class="mt-1 text-center">
+                            <span *ngIf="isUploaded"></span>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" styleClass="mt-4">
+                            Ver Factura
+                        </button>
+                        <div *ngIf="errorMessage" class="error-message">
+                        </div>
+
+                        <div>
+                            <p-button class="agregar-archivo" *ngIf="!showUploadButton" styleClass="mt-4" (click)="uploadFile()"
+                                label="Subir archivo" icon="pi pi-upload"></p-button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mt-2 mb-0" *ngIf="isUploaded">
+                    <span class="fs-6">Esta factura corresponde a: <span class="fw-500"></span></span>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                    <small class="text-red">Esta factura va a ser enviada después de la fecha límite</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-8 mb-3">
+                <h2 class="mt-1 mb-2">Historial</h2>
+                <div *ngFor="let element of historial; let i = index">
+                    <mat-accordion>
+                        <mat-expansion-panel hideToggle>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Cobro: 
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    Fecha:
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <div style="display: flex;
+                            justify-content: space-between;">
+                                <span>Ingreso:</span>
+                                <span>Fecha pagada:</span>
+                                <span>Cantidad pagada: </span>
+                                <span>Precio original:</span>
+                            </div>
+                            <cdk-virtual-scroll-viewport itemSize="10" class="example-viewport" style="height: 200px;">
+                                <div class="pb-2 example-item separator" style="display: flex;
+                                justify-content: space-between;" *cdkVirtualFor="let item of listas[i]"
+                                    class="example-item">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </cdk-virtual-scroll-viewport>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-4">
+                <h2 class="mt-1 mb-2">Estatus de la factura:</h2>
+                <div class="card border-1 h-75">
+                    <div *ngFor="let item of jsonData; let i = index">
+                        <div class="card-body d-flex align-items-center" *ngIf="i == (selectedMonth-1)">
+                            Estado factura:                       
+                        </div>
+                        <div class="card-body d-flex align-items-center" *ngIf="i == (selectedMonth-1)">
+                            <div *ngIf="getStatusFactura() === 'Rechazado'">
+                                <span class="weight-reject">Su factura fue rechazada por las siguientes razones:
+                                </span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="card-body d-flex align-items-center" *ngIf="i == (selectedMonth-1) && getStatusFactura() === 'Validado'">
+                            <span class="weight-reject">Estatus del comprobante:
+                            </span>
+                            <div *ngIf="getStatusComprobante(); else elseBlock" style="color: green;">
+                                <span>Se pagó</span>
+                            </div>
+                            <ng-template #elseBlock>
+                                <div style="color: red;">
+                                    <span>No se pagó</span>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+                <div class="container mb-3">
+                    <div class="row d-flex justify-content-end">
+                        <div *ngIf="userInfo.status_pago_influencer">
+                            <h2 class="mt-1 mb-2">Comprobante</h2>
+                            <div class="card border-1">
+                                <div class="card-body">
+                                    <button (click)="downloadPaymentRecipt(userInfo.email)" mat-stroked-button
+                                        class="w-100 button-dasana">
+                                        Descargar comprobante
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3">
+                <ol class="text-muted mb-0">
+                    <li class="texto-detalles">Sube tu factura con tus ingresos correspondientes al mes anterior
+                        antes del 10 del mes en curso.</li>
+                    <li class="texto-detalles">Nuestro equipo revisará que esté todo correcto.</li>
+                    <li class="texto-detalles">Recibirás el pago en la cuenta que nos facilitaste a los 30 días
+                        de haber subido la factura.<br /><span>*Cualquier duda escribir al correo
+                            info@dasana.app</span><br /></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+    <div class="center-screen">
+        <div class="container flex-column align-items-center align-items-start">
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <svg class="bi bi-send-exclamation icon-loading" xmlns="http://www.w3.org/2000/svg" width="1em"
+                        height="1em" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855a.75.75 0 0 0-.124 1.329l4.995 3.178 1.531 2.406a.5.5 0 0 0 .844-.536L6.637 10.07l7.494-7.494-1.895 4.738a.5.5 0 1 0 .928.372l2.8-7Zm-2.54 1.183L5.93 9.363 1.591 6.602l11.833-4.733ZM12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5a.5.5 0 0 0-1 0v1.5a.5.5 0 0 0 1 0V11Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z">
+                        </path>
+                    </svg>
+                    <h1 class="text-loading">Cargando...</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <h1 class="text-description">Si esto demora demasiado puede estar ocurriendo una de las siguientes
+                        opciones:</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex align-items-center">
+                    <ul>
+                        <li class="itemList-description">No existe un código asignado a esta cuenta.</li>
+                        <li class="itemList-description"> El código no cuenta con usos validos.</li>
+                        <li class="itemList-description mt-1">Hay algun problema con el código asociado a esta cuenta,
+                            por favor contacta a un administrador.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 d-flex align-items-center mt-2">
+                    <button mat-stroked-button class="button-back">Regresar al inicio</button>
+                    <button mat-stroked-button class="button-contact">
+                        <a class="mailto-contact">Contáctanos</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
